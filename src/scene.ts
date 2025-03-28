@@ -55,7 +55,7 @@ const params = {
     size: 0.001,
     amount: 100000,
     enableTexture: false,
-    currentTexture: starTexture1,
+    currentTexture: undefined,
   },
   shape: {
     radius: 0.35,
@@ -152,25 +152,17 @@ const generateGalaxy = () => {
 
   /* STARS MATERIAL */
 
-  if (params.stars.enableTexture) {
-    starsMaterial = new THREE.PointsMaterial({
-      size: params.stars.size,
-      sizeAttenuation: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      vertexColors: true,
-      alphaMap: params.stars.currentTexture,
-      transparent: true,
-    });
-  } else {
-    starsMaterial = new THREE.PointsMaterial({
-      size: params.stars.size,
-      sizeAttenuation: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      vertexColors: true,
-    });
-  }
+  const isTransparent = !!params.stars.currentTexture;
+
+  starsMaterial = new THREE.PointsMaterial({
+    size: params.stars.size,
+    sizeAttenuation: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexColors: true,
+    alphaMap: params.stars.currentTexture,
+    transparent: isTransparent,
+  });
 
   /* STARS PARTICLES */
   galaxy = new THREE.Points(starsGeometry, starsMaterial);
@@ -195,13 +187,10 @@ starsTweaks
   .step(1000)
   .name("Amount")
   .onFinishChange(generateGalaxy);
-starsTweaks
-  .add(params.stars, "enableTexture")
-  .name("Enable texture")
-  .onFinishChange(generateGalaxy);
 
 starsTweaks
   .add(params.stars, "currentTexture", {
+    none: undefined,
     1: starTexture1,
     2: starTexture2,
     3: starTexture3,
