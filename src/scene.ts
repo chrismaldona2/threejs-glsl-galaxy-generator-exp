@@ -216,7 +216,7 @@ const shapeTweaks = gui.addFolder("Shape");
 shapeTweaks
   .add(params.shape, "radius")
   .min(0)
-  .max(7)
+  .max(4)
   .step(0.001)
   .name("Radius")
   .onFinishChange(generateGalaxy);
