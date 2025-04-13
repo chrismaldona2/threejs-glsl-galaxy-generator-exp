@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/three": "^0.174.0",
     "lil-gui": "^0.20.0",
-    "three": "^0.174.0"
+    "three": "^0.174.0",
+    "vite-plugin-glsl": "^1.4.0"
   }
 }

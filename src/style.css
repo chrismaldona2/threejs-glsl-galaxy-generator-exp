@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 
-#canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  user-select: none;
-  outline: none;
+html,
+body {
+  overflow: hidden;
+}
+
+.lil-gui {
+  --width: min(400px, 90%);
 }

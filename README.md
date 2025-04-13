@@ -1,6 +1,6 @@
-## Three.js Galaxy Generator
+## Three.js Galaxy Generator with Custom GLSL Shaders
 
-Experimental Galaxy Generator using particles.
+An animated galaxy built using [Three.js](https://threejs.org/) and custom GLSL shaders.
 
 ### Controls
 
@@ -9,4 +9,4 @@ Experimental Galaxy Generator using particles.
 
 ### Demo
 
-[Github Page](https://chrismaldona2.github.io/galaxy-generator-exp/)
+[Github Page](https://chrismaldona2.github.io/threejs-glsl-galaxy-generator-exp/)
